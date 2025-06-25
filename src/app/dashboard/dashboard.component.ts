@@ -11,6 +11,6 @@ export class DashboardComponent {
 
   constructor(private book: BookServiceService) { }
 
-
+  books = this.book.getBooks();
 
 }
