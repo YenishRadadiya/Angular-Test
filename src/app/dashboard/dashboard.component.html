@@ -1,17 +1,26 @@
-<table>
-    <tr>
-        <th>No. </th>
-        <th>Title</th>
-        <th>Author</th>
-        <th>Status</th>
-    </tr>
-    @for(let book in books;track book){
-    <tr>
-        <td>book.id</td>
-        <td>book.title</td>
-        <td>book.author</td>
-        <td>book.status</td>
-    </tr>
-    }
+<div class="header">
+    <h1>Book Dashboard</h1>
+    <input id="search" type="text" [formControl]="searchText" placeholder="Search books...">
+    <button id="logout" (click)="logout()">Logout</button>
+</div>
 
+<table>
+    <thead>
+        <tr>
+            <th>No.</th>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Available</th>
+        </tr>
+    </thead>
+    <tbody>
+        @for (book of books; track book.id) {
+        <tr>
+            <td>{{ book.id }}</td>
+            <td>{{ book.title }}</td>
+            <td>{{ book.author }}</td>
+            <td>{{ book.available | status}}</td>
+        </tr>
+        }
+    </tbody>
 </table>

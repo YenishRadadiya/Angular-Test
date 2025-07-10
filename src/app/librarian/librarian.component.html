@@ -1,1 +1,45 @@
-<p>librarian works!</p>
+<div class="header">
+    <h1>Librarian Dashboard</h1>
+    <!-- <input id="search" type="text" [formControl]="searchText" placeholder="Search books..."> -->
+    <button id="logout" (click)="logout()">Logout</button>
+</div>
+
+<table>
+    <tr>
+        <th>No. </th>
+        <th>Title</th>
+        <th>Author</th>
+        <th>Status</th>
+    </tr>
+    @for( book of books;track book){
+    <tr>
+        <td>{{book.id}}</td>
+        <td>{{book.title}}</td>
+        <td>{{book.author}}</td>
+        <td>{{book.available}}</td>
+    </tr>
+    }
+
+</table>
+
+
+
+<div>
+    <form [formGroup]="BookForm" (ngSubmit)="addBook()">
+        <label for="title">Title:</label>
+        <input id="title" type="text" formControlName="title">
+
+        <label for="author">Author:</label>
+        <input id="author" type="text" formControlName="author">
+
+        <label for="available">Available:</label>
+        <select id="available" formControlName="available">
+            <option [ngValue]="true">Available</option>
+            <option [ngValue]="false">Not available</option>
+        </select>
+
+        <button type="submit">Add Book</button>
+    </form>
+
+
+</div>

@@ -2,3 +2,14 @@ table {
     width: 100%;
   }
   
+
+  .header{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+
+    #search{
+      height: 30px;
+      width: 80px;
+    }
+  }
